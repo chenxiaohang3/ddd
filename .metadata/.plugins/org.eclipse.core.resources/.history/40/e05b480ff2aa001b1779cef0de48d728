@@ -1,0 +1,9 @@
+package a;
+
+import javax.swing.JFrame;
+
+public class a extends JFrame {
+	a() {
+
+	}
+}

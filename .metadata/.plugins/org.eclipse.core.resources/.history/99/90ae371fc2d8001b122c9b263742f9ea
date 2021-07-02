@@ -1,0 +1,8 @@
+package STMS;
+
+public class Dao {
+	public String test(Map m) {
+		System.out.println(1333);
+		return "666";
+	}
+}

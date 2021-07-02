@@ -1,0 +1,12 @@
+package TMS;
+
+import javax.swing.JFrame;
+
+public class TeacInfoManage extends JFrame {
+	TeacInfoManage() {
+		setResizable(false);
+		setSize(1000, 600);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+	}
+}

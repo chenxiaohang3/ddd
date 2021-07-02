@@ -1,0 +1,31 @@
+package TMS;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.swing.JPanel;
+
+public class TechInfoList extends JPanel {
+	TechInfoList() {
+		setSize(500, 500);
+		setLocation(0, 0);
+		List();
+	}
+
+	public void List() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://8.136.233.37:3306/tms", "root", "123456");
+			String sql = "select * from tech_inf";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				String s = rs.getString("tech_title").trim();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,66 @@
+package b;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		while (true) {
+			String s = "";
+			Scanner sn = new Scanner(System.in);
+			s = sn.next();
+			int l = s.length();
+			// 判断头尾是否规范
+			if (s.charAt(0) != '[' || s.charAt(1) != '[') {
+				System.out.println(0);
+				return;
+			}
+			if (s.charAt(l - 1) != ']' || s.charAt(l - 2) != ']') {
+				System.out.println(0);
+				return;
+			}
+			// 去头尾，留下中间进行切割处理
+			s = s.substring(1, l - 1);
+			String arrs[] = null;
+			int mylen = 0;
+			try {
+				// 判断是否有一本书.
+				arrs = s.split("\\[");
+				mylen = arrs.length;
+				System.out.println("ml=" + mylen);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			// 看是否有一本书没有长宽？
+			if (mylen <= 2) {
+				String mstr = "[" + arrs[1];
+				String myWH[] = mstr.split(",");
+				int my_port_len = myWH.length;
+				if (my_port_len <= 1) {
+					System.out.println(0);
+					return;
+				}
+				System.out.println("my_port_len" + my_port_len);
+				System.out.println(myWH[0]);
+				System.out.println(myWH[1]);
+			} else {
+				for (int i = 1; i < mylen; i++) {
+					String mstr = "[" + arrs[i];
+					char my_right = mstr.charAt(mstr.length() - 1);
+					if (my_right != ',') {
+						System.out.println(0);
+						return;
+					}
+					System.out.println("ms" + mstr);
+					int myPort = mstr.split(",").length;
+					System.out.println("mp=" + myPort);
+					// 如果有一本书没有长宽值就不行.
+					if (myPort != 2) {
+						// System.out.println(0);
+						// return;
+					}
+					System.out.println("arr第" + i + "个=" + mstr);
+				}
+			}
+		}
+	}
+}

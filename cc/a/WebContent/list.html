@@ -1,0 +1,35 @@
+<style>
+.t1 {
+	float: left;
+}
+
+.t2 {
+	float: left;
+}
+</style>
+<script src="jq.js"></script>
+<div id="show"></div>
+<script>
+	$.ajax({
+		url : "./go",
+		type : "post",
+		data : {
+			method : "test",
+			package : "a"
+		},
+		success : function(data) {
+			data = JSON.parse(data);
+			var l = data.length;
+			var h2 = "";
+			for (var i = 0; i < l; i++) {
+				var o = data[i];
+				for ( var st in o) {
+					h2 = h2 + "<div class=\"t" + i % 2 + "\" id=\"t" + i
+							+ "\">" + o[st] + "</div>";
+				}
+			}
+			$("#show").html(h2);
+
+		}
+	});
+</script>

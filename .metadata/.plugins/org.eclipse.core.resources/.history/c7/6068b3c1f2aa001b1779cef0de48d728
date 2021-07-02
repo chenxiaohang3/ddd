@@ -1,0 +1,11 @@
+package a;
+
+import javax.swing.JFrame;
+
+import com.mysql.jdbc.AssertionFailedException;
+
+public class a extends JFrame {
+	public static void main(String[] args) {
+		AssertionFailedException ae;
+	}
+}

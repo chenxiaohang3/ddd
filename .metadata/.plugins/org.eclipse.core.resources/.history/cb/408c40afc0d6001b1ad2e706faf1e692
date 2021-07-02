@@ -1,0 +1,42 @@
+package test;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.lang.reflect.Field;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class test extends JFrame {
+	String week[] = { "__上午__下午_", "周一_组原_大英_大数_空课", "周二_大英_大数_空课_空课", "周三_JAVAWeb_思修_空课_班会", "周四_数据库_空课_实验一_实验二",
+			"周五_空课_体育_空课_空课" };
+
+	test() {
+		for (int i = 0; i < week.length; i++) {
+			JPanel lineJp = new JPanel();
+			lineJp.setBounds(0, i * 100, 800, 50);
+			lineJp.setLayout(new GridLayout(4, 1));
+			add(lineJp);
+			String arr[] = week[i].split("_");
+			for (int j = 0; j < arr.length; j++) {
+				JPanel jp = new JPanel();
+				lineJp.add(jp);
+				String s = arr[j];
+				jp.add(new JLabel(s), new BorderLayout().SOUTH);
+			}
+		}
+		setTitle("java课程表");
+		setResizable(false);
+		setSize(800, 600);
+		setLayout(new GridLayout(1, 5));
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+	}
+
+	public static void main(String[] arg) {
+		new test();
+	}
+
+}

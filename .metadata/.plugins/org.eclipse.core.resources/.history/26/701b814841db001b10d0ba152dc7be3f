@@ -1,0 +1,11 @@
+package club.twzw.service.impl;
+
+@Service("userService")					<<<<-----------
+public class userServiceImpl implements userService {
+    
+    @Override
+    public List<User> findAll() {
+        System.out.println("查询所有用户。。。");
+        return null;//service.findAll();
+    }
+}

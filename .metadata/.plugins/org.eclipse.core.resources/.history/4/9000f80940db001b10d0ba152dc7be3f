@@ -1,0 +1,11 @@
+package b;
+
+public class a {
+	@Test
+	public void testQueryUserList() {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+		userService service = (userService) ac.getBean("userService"); // 因为给service起了别名，所以通过id的方式获取class
+		service.findAll();
+
+	}
+}

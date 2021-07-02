@@ -1,0 +1,26 @@
+package TMS;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import javax.swing.JPanel;
+
+public class TechInfoList extends JPanel {
+	TechInfoList() {
+		setSize(500, 500);
+		setLocation(0, 0);
+
+	}
+
+	public void List() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://8.136.233.37:3306/tms", "root", "123456");
+			String sql = "";
+			PreparedStatement ps = conn.prepareStatement(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

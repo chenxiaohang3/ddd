@@ -1,0 +1,19 @@
+package TMS;
+
+import javax.swing.JPanel;
+
+public class TechInfoList extends JPanel {
+	TechInfoList() {
+		setSize(500, 500);
+		setLocation(0, 0);
+
+	}
+
+	public void List() {
+		try {
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

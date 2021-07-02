@@ -1,0 +1,69 @@
+package TMS;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class TeacInfoManage extends JFrame {
+	// 标题栏
+	JPanel jp_title = new JPanel();
+	JLabel jl_user_name = new JLabel("你好,张三");
+	// 主操作区
+	JPanel jp_mainopera = new JPanel();
+	// 主操区的左边-菜单
+	JPanel jp_menu = new JPanel();
+	// 主操区的右边-详细数据处理
+	JPanel jp_opera = new JPanel();
+	// 主操区的右边-详细数据处理-搜索条件，增删改按钮
+	JPanel jp_find_config = new JPanel();
+	// 主操区的右边-详细数据处理-列表数据
+	JPanel jp_list_teac_inf = new JPanel();
+	// 版权区
+	JPanel jp_copyright = new JPanel();
+
+	TeacInfoManage() {
+		// 标题栏
+		add(jp_title);
+		jp_title.setBounds(0, 0, 1400, 40);
+		jp_title.add(jl_user_name);
+		jp_title.setLayout(null);
+		jl_user_name.setBounds(0, 1200, 120, 30);
+		// 主操作区
+		add(jp_mainopera);
+		jp_mainopera.setLayout(null);
+		jp_mainopera.setBounds(0, 40, 1400, 780);
+		// 主操区的左边-菜单
+		jp_mainopera.add(jp_menu);
+		jp_menu.setBounds(0, 0, 180, 780);
+		// 主操区的右边-详细数据处理
+		jp_mainopera.add(jp_opera);
+		jp_opera.setBounds(180, 0, 1210, 780);
+		jp_opera.setLayout(null);
+		// 主操区的右边-详细数据处理-搜索条件，增删改按钮
+		jp_opera.add(jp_find_config);
+		jp_find_config.setBounds(0, 0, 1210, 120);
+		jp_find_config.setBackground(Color.red);
+		// 主操区的右边-详细数据处理-列表数据
+		jp_opera.add(jp_list_teac_inf);
+		jp_list_teac_inf.setBounds(0, 120, 1210, 660);
+		jp_list_teac_inf.setBackground(Color.yellow);
+		// 版权区
+		add(jp_copyright);
+		jp_copyright.setBounds(0, 820, 1400, 40);
+		setResizable(false);
+		setTitle("教务管理系统-教务信息(列表信息)");
+		setSize(1400, 900);
+		setLocationRelativeTo(null);
+		setLayout(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new TeacInfoManage();
+	}
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jq.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+	function test() {
+		$.ajax({
+			url : "../go",
+			type : "post",
+			data : {
+				"package" : "mj",
+				"method" : "test"
+			},
+			success : function(data) {
+				console.log(data);
+			},
+		});
+	}
+	test();
+</script>

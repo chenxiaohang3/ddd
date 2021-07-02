@@ -1,0 +1,58 @@
+package a;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		try {
+			String s = "";
+			Scanner sc = new Scanner(System.in);
+			s = sc.next();
+			int l = s.length();
+			if (l > 100) {
+				return;
+			}
+			String indexStr = s.charAt(l - 1) + "";
+			String L = "";
+			L = sc.next();
+			int Llen = L.length();
+			if (Llen > 500000) {
+				return;
+			}
+			int my_l_index = 0;
+			int my_s_index = 0;
+			int if_success = 0;
+			for (int j = my_l_index; j < Llen; j++) {
+				// 如果L的长度已经没有S长了，那程序结束
+				int if_stop = 0;
+				for (int i = my_s_index; i < l; i++) {
+					char c = s.charAt(i);
+					char lc = L.charAt(j);
+					// 如果在L中找到S的某一个字符，就停止在S中继续遍历
+					if (c == lc) {
+						my_s_index++;
+						my_l_index++;
+						break;
+					}
+					// 如果L的长度已经没有S长了，那程序结束
+					if (l - i > Llen - j) {
+						if_stop = 1;
+						break;
+					}
+				}
+				// 如果L的长度已经没有S长了，那程序结束
+				if (if_stop == 1) {
+					if_success = 1;
+					break;
+				}
+			}
+			if (if_success == 0) {
+				System.out.println(L.lastIndexOf(s.charAt(s.length() - 1)));
+			} else {
+				System.out.println(-1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

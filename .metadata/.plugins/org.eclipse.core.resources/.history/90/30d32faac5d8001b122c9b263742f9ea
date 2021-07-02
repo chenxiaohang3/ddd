@@ -1,0 +1,19 @@
+package STMS;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Map;
+
+public class Dao {
+	public String list(String s) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("", "", "");
+			PreparedStatement ps = conn.prepareStatement(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "666";
+	}
+}

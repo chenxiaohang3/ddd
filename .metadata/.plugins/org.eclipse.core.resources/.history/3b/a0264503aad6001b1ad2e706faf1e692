@@ -1,0 +1,124 @@
+package a;
+
+import java.util.*;
+import javax.swing.*;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import java.awt.event.*;
+
+public class cipher extends JFrame {
+
+	public cipher() {
+		setTitle(title);
+		setLocation(x, y);
+		setSize(width, height);
+		setResizable(false);
+		// 加了布局.
+		setLayout(new GridLayout(6, 1));
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+	}
+
+	public static void main(String[] args) {
+
+		new cipher("加密解密", 200, 200, 300, 200);
+
+		// **String clearText = text1;
+		String clearText = "text1";
+		int key = 4;
+
+		String s1 = encrypt(clearText, key);
+		System.out.println(s1);
+		// **String s2 = decrypt(cipher, key);
+		// 这行改成(原因是先加密，再解密，那就把加密过的字符s1放进解密工具方法中，对吧)
+		String s2 = decrypt(s1, key);
+		System.out.println(s2);
+	}
+
+	// 加密
+	// **作用域
+	// **private static String encrypt(String clearText, int key) {
+	public static String encrypt(String clearText, int key) {
+		char[] charArray = clearText.toCharArray();
+		for (int i = 0; i < charArray.length; i++) {
+			// 取出每一个字母，并向右移动4位
+			char c = (char) (charArray[i] + key);
+			// 替换原来数据
+			charArray[i] = c;
+		}
+		System.out.println(new String(charArray));
+		// Text2.set
+		// Arrays.toString()
+		// **
+		text2.setText(new String(charArray));
+
+		return new String(charArray);
+
+	}
+
+	// 解密
+	// **作用域
+	// **private static String decrypt(String cipherText, int key) {
+
+	static String decrypt(String cipherText, int key) {
+		char[] charArray = cipherText.toCharArray();
+		for (int i = 0; i < charArray.length; i++) {
+			// 取出字母左移动4位
+			char c = (char) (charArray[i] - key);
+			charArray[i] = c;
+		}
+		text2.setText(new String(charArray));
+		return new String(charArray);
+	}
+}
+
+class MyFrame extends Listen {
+	// **这里定义四个变量
+	static JTextField text1;
+	static JTextField text2;
+
+	MyFrame(String title, int x, int y, int width, int height) {
+		// super(title);
+		init();
+		setTitle(title);
+		setLocation(x, y);
+		setSize(width, height);
+		setResizable(false);
+		// 加了布局.
+		setLayout(new GridLayout(6, 1));
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+
+	void init() {
+		add(new JLabel("原文:"));
+		text1 = new JTextField(10);
+		add(text1);
+		add(new JLabel("处理:"));
+		text2 = new JTextField(10);
+		add(text2);
+		Listen.button1 = new JButton("加密");
+		add(Listen.button1);
+		Listen.button2 = new JButton("解密");
+		add(Listen.button2);
+	}
+}
+
+class Listen extends MouseAdapter {
+	static JButton button1, button2;
+
+	public void mouseClicked(MouseEvent e) {
+		if (e.getSource() == button1) {
+			if (e.getButton() == MouseEvent.BUTTON1)
+				// **encrypt();
+				cipher.encrypt(MyFrame.text1.getText(), 4);
+		}
+		if (e.getSource() == button2) {
+			if (e.getButton() == MouseEvent.BUTTON1)
+				// **decrypt();
+				cipher.decrypt(MyFrame.text2.getText(), 4);
+		}
+	}
+}

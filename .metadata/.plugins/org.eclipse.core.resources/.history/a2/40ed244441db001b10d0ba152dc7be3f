@@ -1,0 +1,5 @@
+package club.twzw.service.impl;
+
+public class UserServiceImpl {
+
+}

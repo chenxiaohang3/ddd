@@ -1,0 +1,43 @@
+package a;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		try {
+			String s = "";
+			Scanner sc = new Scanner(System.in);
+			s = sc.next();
+			int l = s.length();
+			if (l > 100) {
+				return;
+			}
+			String indexStr = s.charAt(l - 1) + "";
+			String L = "";
+			L = sc.next();
+			int Llen = L.length();
+			if (Llen > 500000) {
+				return;
+			}
+			int my_l_index = 0;
+			int my_s_index = 0;
+			for (int j = my_l_index; j < Llen; j++) {
+				int if_stop = 0;
+				for (int i = my_s_index; i < l; i++) {
+					char c = s.charAt(i);
+					char lc = L.charAt(j);
+					if (c == lc) {
+						my_s_index++;
+						my_l_index++;
+						break;
+					}
+					if (l - i > Llen - j) {
+						break;
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

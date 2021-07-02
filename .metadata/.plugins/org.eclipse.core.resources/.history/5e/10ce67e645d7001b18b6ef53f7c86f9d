@@ -1,0 +1,41 @@
+package TMS;
+
+import java.awt.Color;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class TeacInfoManage extends JFrame {
+	// 标题栏
+	JPanel jp_title = new JPanel();
+
+	// 主操作区
+	JPanel jp_mainopera = new JPanel();
+
+	// 版权区
+	JPanel jp_copyright = new JPanel();
+
+	TeacInfoManage() {
+		add(jp_title);
+		jp_title.setBounds(0, 0, 1400, 40);
+		jp_title.setBackground(Color.red);
+		add(jp_mainopera);
+		jp_mainopera.setBackground(Color.yellow);
+		jp_mainopera.setBounds(0, 40, 1400, 780);
+		add(jp_copyright);
+		jp_copyright.setBackground(Color.gray);
+		jp_copyright.setBounds(0, 820, 1400, 30);
+		setResizable(false);
+		setTitle("教务管理系统-教务信息(列表信息)");
+		setSize(1400, 900);
+		setLocationRelativeTo(null);
+		setLayout(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new TeacInfoManage();
+	}
+}

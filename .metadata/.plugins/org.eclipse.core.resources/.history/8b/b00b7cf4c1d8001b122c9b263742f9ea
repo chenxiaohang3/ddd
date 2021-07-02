@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>软件测试管理系统</title>
+<script src="jq.js"></script>
+</head>
+<body>
+	<div id="show"></div>
+</body>
+</html>
+<script>
+	function list() {
+		$.ajax({
+			url : "",
+			data : {
+
+			},
+			success : function(data) {
+				$("").html(data);
+			},
+		});
+	}
+	list();
+</script>

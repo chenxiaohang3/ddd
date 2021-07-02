@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jq.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+	function DBList() {
+		$.ajax({
+			url : "./go",
+			type : "post",
+			data : {
+				"method" : "TableList"
+			},
+			success : function(data) {
+				console.log(data);
+			},
+		});
+	}
+	DBList();
+</script>

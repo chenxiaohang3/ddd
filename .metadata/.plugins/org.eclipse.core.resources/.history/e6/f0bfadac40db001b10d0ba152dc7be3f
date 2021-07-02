@@ -1,0 +1,12 @@
+package b;
+
+import org.springframework.stereotype.Service;
+
+import b.User;
+
+import java.util.List;
+
+public interface UserService {
+	public List<User> findAll();
+
+}

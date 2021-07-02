@@ -1,0 +1,47 @@
+package TMS;
+
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class TechInfoList extends JPanel {
+	TechInfoList() {
+		setSize(1202, 520);
+		setLocation(0, 0);
+		setLayout(new GridLayout(10, 1));
+		List();
+	}
+
+	public void List() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://8.136.233.37:3306/tms", "root", "123456");
+			String sql = "select * from tech_inf limit 0,10";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+
+				String s = rs.getString("tech_title").trim();
+				if (s.length() > 20) {
+					s = s.substring(0, 20) + ".....";
+				}
+				JPanel jp = new JPanel();
+				jp.setLayout(null);
+				add(jp);
+
+				JLabel jl = new JLabel("<html><div style=\"padding-left:50px;\"><u>" + s + "</u></div></html>");
+				jp.add(jl);
+				jl.setBounds(0, 0, 300, 30);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

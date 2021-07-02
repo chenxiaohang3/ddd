@@ -1,0 +1,10 @@
+package TMS;
+
+import javax.swing.JPanel;
+
+public class TechInfoList extends JPanel {
+	TechInfoList() {
+		setSize(500, 500);
+		setLocation(0, 0);
+	}
+}

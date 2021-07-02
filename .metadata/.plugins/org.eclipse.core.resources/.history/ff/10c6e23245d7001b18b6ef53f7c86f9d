@@ -1,0 +1,25 @@
+package TMS;
+
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class TeacInfoManage extends JFrame {
+	// 标题栏
+	JPanel jp_title = new JPanel();
+	
+	// 主操作区
+	JPanel jp_mainopera = new JPanel();
+
+	// 版权区
+	JPanel copyright = new JPanel();
+
+	TeacInfoManage() {
+		setResizable(false);
+		setSize(1000, 600);
+		setLayout(new GridLayout(1, 3));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+	}
+}

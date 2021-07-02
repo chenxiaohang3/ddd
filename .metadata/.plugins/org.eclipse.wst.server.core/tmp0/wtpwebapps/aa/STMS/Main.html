@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>软件测试管理系统</title>
+<script src="jq.js"></script>
+</head>
+<body>
+	<div id="show"></div>
+</body>
+</html>
+<script>
+	function list() {
+		$.ajax({
+			url : "../go",
+			type : "post",
+			data : {
+				package : "STMS",
+				method : "test"
+			},
+			success : function(data) {
+				$("#show").html(data);
+			},
+		});
+	}
+	list();
+</script>
